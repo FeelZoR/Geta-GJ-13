@@ -1,3 +1,13 @@
 keys,en,fr
 enemy_tutorial_title,Enemies,Les Ennemis
 enemy_tutorial_desc,"These elves are your enemies. Shoot them to reduce their health and kill them, but don't let them touch you!","Ces lutins sont vos ennemis. Tirez-leur dessus pour réduire leur vie et les tuer, mais ne les laissez pas vous toucher !"
+sound_settings_title,Sound Settings,Options de Son
+master_sound_settings,Master,Global
+bgm_settings,Background Music,Musique d'Ambiance
+sfx_settings,Sound Effects,Effets Sonores
+ui_sounds_settings,User Interface Sounds,Sons d'Interface
+ui_cancel,Cancel,Annuler
+ui_confirm,OK,OK
+resume,Resume,Reprise
+settings,Settings,Options
+quit,Quit,Quitter

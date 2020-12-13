@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/UI/Settings.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=4]
+
+[node name="Settings" type="Panel"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -638.941
+margin_top = -360.0
+margin_right = 641.059
+margin_bottom = 360.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="Margin"]
+margin_right = 1180.0
+margin_bottom = 620.0
+custom_constants/separation = 60
+
+[node name="Title" type="Label" parent="Margin/Container"]
+margin_right = 1180.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 4 )
+text = "Sound Settings"
+align = 1
+
+[node name="Master" type="VBoxContainer" parent="Margin/Container"]
+margin_top = 138.0
+margin_right = 1180.0
+margin_bottom = 176.0
+custom_constants/separation = 5
+
+[node name="Title" type="Label" parent="Margin/Container/Master"]
+margin_right = 1180.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "Master"
+align = 1
+
+[node name="Bar" type="HSlider" parent="Margin/Container/Master"]
+margin_top = 22.0
+margin_right = 1180.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BGM" type="VBoxContainer" parent="Margin/Container"]
+margin_top = 236.0
+margin_right = 1180.0
+margin_bottom = 273.0
+
+[node name="Title" type="Label" parent="Margin/Container/BGM"]
+margin_right = 1180.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "BGM"
+align = 1
+
+[node name="Bar" type="HSlider" parent="Margin/Container/BGM"]
+margin_top = 21.0
+margin_right = 1180.0
+margin_bottom = 37.0
+
+[node name="SFX" type="VBoxContainer" parent="Margin/Container"]
+margin_top = 333.0
+margin_right = 1180.0
+margin_bottom = 370.0
+
+[node name="Title" type="Label" parent="Margin/Container/SFX"]
+margin_right = 1180.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "SFX"
+align = 1
+
+[node name="Bar" type="HSlider" parent="Margin/Container/SFX"]
+margin_top = 21.0
+margin_right = 1180.0
+margin_bottom = 37.0
+
+[node name="UI" type="VBoxContainer" parent="Margin/Container"]
+margin_top = 430.0
+margin_right = 1180.0
+margin_bottom = 467.0
+
+[node name="Title" type="Label" parent="Margin/Container/UI"]
+margin_right = 1180.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 3 )
+text = "UI"
+align = 1
+
+[node name="Bar" type="HSlider" parent="Margin/Container/UI"]
+margin_top = 21.0
+margin_right = 1180.0
+margin_bottom = 37.0
+
+[node name="Buttons" type="HBoxContainer" parent="Margin/Container"]
+margin_top = 527.0
+margin_right = 1180.0
+margin_bottom = 567.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Margin/Container/Buttons"]
+margin_left = 500.0
+margin_right = 580.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+
+[node name="Ok" type="Button" parent="Margin/Container/Buttons"]
+margin_left = 600.0
+margin_right = 680.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+
+[node name="UI_Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "UI Sounds"
+[connection signal="value_changed" from="Margin/Container/Master/Bar" to="." method="_on_MasterBar_value_changed"]
+[connection signal="value_changed" from="Margin/Container/BGM/Bar" to="." method="_on_BgmBar_value_changed"]
+[connection signal="value_changed" from="Margin/Container/SFX/Bar" to="." method="_on_SfxBar_value_changed"]
+[connection signal="value_changed" from="Margin/Container/UI/Bar" to="." method="_on_UiBar_value_changed"]
+[connection signal="pressed" from="Margin/Container/Buttons/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="Margin/Container/Buttons/Ok" to="." method="_on_Ok_pressed"]
+[connection signal="finished" from="UI_Sound" to="." method="_on_UI_Sound_finished"]

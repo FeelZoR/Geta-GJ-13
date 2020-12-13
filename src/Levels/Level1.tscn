@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/graphics/Level/Tileset.tres" type="TileSet" id=3]
 [ext_resource path="res://src/Entities/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Entities/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/HUD/ParallaxBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UI/ParallaxBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/audio/BGM/patakas_world.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
