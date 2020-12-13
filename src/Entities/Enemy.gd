@@ -6,8 +6,10 @@ export var reload_time = 1.5
 var _initial_pos = 0
 var _initial_scale
 var _direction = 1
+var _is_aiming = false
 
 onready var _reload_timer = $ReloadTimer
+onready var _aim_timer = $AimingTime
 
 var aggro = null
 
@@ -26,18 +28,24 @@ func _physics_process(_delta):
 				var dir = Vector2(cos(angle), -sin(angle))
 				_gun.shoot(dir, _strength, false)
 				_is_reloading = true
+				_is_aiming = true
 				_reload_timer.start()
+				_aim_timer.start()
 	
-	if angle == null:
+	if angle == null and not _is_aiming:
 		if abs(position.x - _initial_pos.x) >= max_distance:
 			_update_direction()
 			
+		_update_animation()
 		_velocity.x = speed.x * _direction
 		_velocity = move_and_slide_with_snap(_velocity, Vector2.DOWN * 20, FLOOR_NORMAL)
 			
 
 func _update_direction():
 	_direction *= -1
+
+func _update_animation():
+	sprite.set_animation("Walking")
 	sprite.scale.x = -_initial_scale if _direction < 0 else _initial_scale
 
 func _on_TutorialNotifier_body_entered(body):
@@ -50,6 +58,7 @@ func _on_TutorialNotifier_body_entered(body):
 ##### PLAYER ATTACK #####
 func _look_at(player):
 	sprite.scale.x = -_initial_scale if player.position.x < position.x else _initial_scale
+	sprite.set_animation("Idle")
 	
 func _calculate_launch_angle():
 	var pos = aggro.global_position - _gun.global_position
@@ -79,3 +88,6 @@ func _on_PlayerVisibility_body_exited(body):
 
 func _on_ReloadTimer_timeout():
 	_is_reloading = false
+
+func _on_AimingTime_timeout():
+	_is_aiming = false

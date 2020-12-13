@@ -54,7 +54,7 @@ script = ExtResource( 2 )
 [node name="Sprite" parent="." index="1"]
 frames = SubResource( 6 )
 animation = "Walking"
-frame = 4
+frame = 7
 
 [node name="Gun" parent="Sprite" index="0"]
 position = Vector2( 24.6719, 0 )
