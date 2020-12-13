@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/graphics/Level/Items/Anim_bst_jump.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://src/Items/Boost_jump.gd" type="Script" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.3812, 19.7165 )
 
@@ -13,7 +12,7 @@ script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
 frames = ExtResource( 2 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Hitbox" parent="." index="1"]

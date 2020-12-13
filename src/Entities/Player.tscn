@@ -64,7 +64,7 @@ script = ExtResource( 2 )
 [node name="Sprite" parent="." index="1"]
 frames = SubResource( 6 )
 animation = "Walking"
-frame = 6
+frame = 1
 
 [node name="Gun" parent="Sprite" index="0"]
 position = Vector2( 24.6719, 0 )
@@ -91,4 +91,5 @@ bus = "SFX"
 
 [node name="InvincibilityTimer" type="Timer" parent="." index="7"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_BoostTimer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

@@ -29,6 +29,18 @@ const UI_CONFIRM				= "ui_confirm"
 const RESUME_KEY				= "resume"
 const SETTINGS_KEY				= "settings"
 const QUIT_KEY					= "quit"
+const BEGIN_TITLE_KEY			= "begin_tutorial_title"
+const BEGIN_DESC_KEY			= "begin_tutorial_desc"
+const PLATFORM_TITLE_KEY		= "platform_tutorial_title"
+const PLATFORM_DESC_KEY			= "platform_tutorial_desc"
+const BOOST_TITLE_KEY			= "boost_tutorial_title"
+const BOOST_DESC_KEY			= "boost_tutorial_desc"
+const JUMP_TITLE_KEY			= "jump_boost_title"
+const JUMP_DESC_KEY				= "jump_boost_desc"
+const SPEED_TITLE_KEY			= "speed_boost_title"
+const SPEED_DESC_KEY			= "speed_boost_desc"
+const STRENGTH_TITLE_KEY		= "strength_boost_title"
+const STRENGTH_DESC_KEY			= "strength_boost_desc"
 
 ##### LAYERS #####
 const MOVEMENT_LAYER = 1

@@ -21,8 +21,10 @@ position = Vector2( 0, 150 )
 tile_set = ExtResource( 3 )
 format = 1
 
+[node name="Enemies" type="Node" parent="."]
+
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 78.6039, 430.171 )
+position = Vector2( 40.5493, 174.492 )
 scale = Vector2( 1.5, 1.5 )
 speed = Vector2( 350, 500 )
 

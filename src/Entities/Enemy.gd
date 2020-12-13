@@ -1,6 +1,8 @@
 class_name Enemy
 extends Actor
 
+var tutorial_image = preload("res://assets/graphics/Tutorials/enemy.png")
+
 export var max_distance = 200
 export var reload_time = 1.5
 var _initial_pos = 0
@@ -40,7 +42,10 @@ func _physics_process(_delta):
 			
 		_update_animation()
 		_velocity.x = speed.x * _direction
-		_velocity = move_and_slide_with_snap(_velocity, Vector2.DOWN * 20, FLOOR_NORMAL)
+	else:
+		_velocity.x = 0
+	
+	_velocity = move_and_slide_with_snap(_velocity, Vector2.DOWN * 20, FLOOR_NORMAL)
 			
 
 func _update_direction():
@@ -51,7 +56,7 @@ func _on_TutorialNotifier_body_entered(body):
 		TutorialsList.enemy_tutorial = true
 		var title = tr(Settings.ENEMY_TITLE_KEY)
 		var desc = tr(Settings.ENEMY_DESC_KEY)
-		get_tree().get_current_scene().start_tutorial(title, null, desc)
+		get_tree().get_current_scene().start_tutorial(title, tutorial_image, desc)
 
 ##### ANIMATION #####
 func _look_at(player):

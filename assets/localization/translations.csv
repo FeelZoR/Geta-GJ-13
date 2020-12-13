@@ -1,6 +1,14 @@
 keys,en,fr
 enemy_tutorial_title,Enemies,Les Ennemis
-enemy_tutorial_desc,"These elves are your enemies. Shoot them to reduce their health and kill them, but don't let them touch you!","Ces lutins sont vos ennemis. Tirez-leur dessus pour réduire leur vie et les tuer, mais ne les laissez pas vous toucher !"
+enemy_tutorial_desc,"These elves are your enemies. Shoot them to reduce their health and kill them, but don't let them touch you!
+
+Train your shooting skills against this enemy, he is much weaker than those you will encounter later.
+
+Use the left mouse button to shoot, and the cursor to aim.","Ces lutins sont vos ennemis. Tirez-leur dessus pour réduire leur vie et les tuer, mais ne les laissez pas vous toucher !
+
+Entraîne-toi à tirer sur celui-ci, il est beaucoup plus faible que ceux que tu croiseras à l'avenir.
+
+Tire avec le clic gauche et vise avec le curseur."
 sound_settings_title,Sound Settings,Options de Son
 master_sound_settings,Master,Global
 bgm_settings,Background Music,Musique d'Ambiance
@@ -11,3 +19,39 @@ ui_confirm,OK,OK
 resume,Resume,Reprise
 settings,Settings,Options
 quit,Quit,Quitter
+begin_tutorial_title,Movement,Mouvement
+begin_tutorial_desc,"Santa wants to kill you and all other snowmen before Christmas, you must escape!
+
+To move, use WD/ZD or arrows. You can jump with space or the upper arrow. 
+
+Find an exit!","Le Père Noël veut te tuer ainsi que les autres bonshommes de neige avant le 25, tu dois t'échapper !
+
+Pour te déplacer, utilise WD/ZS ou les flèches directionnelles. Tu peux également sauter avec espace ou la flèche du haut.
+
+Trouve une sortie !"
+platform_tutorial_title,Platforms,Plateformes
+platform_tutorial_desc,"Sometimes, walking isn't enough to continue the level.
+
+Try to use these platforms, they move automatically and can get you to otherwise unreachable places.
+
+Jump on it and see where it leads!","Il est parfois impossible d'avancer en se déplaçant simplement.
+
+Essaie d'utiliser ces plateformes, elles peuvent t'aider à atteindre des endroits inaccessibles !
+
+Saute sur celle-ci et regarde où elle t'emmène !"
+boost_tutorial_title,Power-ups,Bonus
+boost_tutorial_desc,"There are three types of power-ups in the game: jump, speed and strength.
+
+Use them to reach impossible places, or to fight easily! You only have to walk on them to retrieve their bonus.
+
+But be careful, they only last between 5 and 15 seconds...","Il y a trois types de bonus dans le jeu: le saut, la vitesse et la force.
+
+Utilise-les pour atteindre des endroits hors de portée, ou pour te battre facilement. Il te suffit de leur marcher dessus pour les récolter.
+
+Mais sois prudent, ils ne durent qu'entre 5 et 15 secondes..."
+jump_boost_title,Jump Boost,Bonus de Saut
+jump_boost_desc,This power-up allows you to jump higher for a limited amount of time. Have fun!,Ce bonus te permet de sauter plus haut. Amuse-toi bien !
+speed_boost_title,Speed Boost,Bonus de Vitesse
+speed_boost_desc,This power-up allows you to move faster and jump farther.,Ce bonus te permet d'aller plus vite et de sauter plus loin.
+strength_boost_title,Strength Boost,Bonus de Force
+strength_boost_desc,"With this boost, your snowballs move farther, but don't deal higher damage. Be careful and don't be overconfident!","Avec ce boost, tes boules de neige se déplacent plus loin, mais ne font pas plus de dégâts. Fais attention et ne sois pas trop en confiance !"
