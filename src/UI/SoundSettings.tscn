@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/UI/Settings.gd" type="Script" id=1]
-[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=2]
-[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/SoundSettings.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=4]
 
 [node name="Settings" type="Panel"]
 pause_mode = 2
@@ -15,7 +15,7 @@ margin_left = -638.941
 margin_top = -360.0
 margin_right = 641.059
 margin_bottom = 360.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,7 +37,7 @@ custom_constants/separation = 60
 [node name="Title" type="Label" parent="Margin/Container"]
 margin_right = 1180.0
 margin_bottom = 78.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
 text = "Sound Settings"
 align = 1
 
@@ -50,7 +50,7 @@ custom_constants/separation = 5
 [node name="Title" type="Label" parent="Margin/Container/Master"]
 margin_right = 1180.0
 margin_bottom = 17.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Master"
 align = 1
 
@@ -70,7 +70,7 @@ margin_bottom = 273.0
 [node name="Title" type="Label" parent="Margin/Container/BGM"]
 margin_right = 1180.0
 margin_bottom = 17.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "BGM"
 align = 1
 
@@ -87,7 +87,7 @@ margin_bottom = 370.0
 [node name="Title" type="Label" parent="Margin/Container/SFX"]
 margin_right = 1180.0
 margin_bottom = 17.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "SFX"
 align = 1
 
@@ -104,7 +104,7 @@ margin_bottom = 467.0
 [node name="Title" type="Label" parent="Margin/Container/UI"]
 margin_right = 1180.0
 margin_bottom = 17.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "UI"
 align = 1
 
@@ -133,7 +133,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 80, 40 )
 
 [node name="UI_Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 bus = "UI Sounds"
 [connection signal="value_changed" from="Margin/Container/Master/Bar" to="." method="_on_MasterBar_value_changed"]
 [connection signal="value_changed" from="Margin/Container/BGM/Bar" to="." method="_on_BgmBar_value_changed"]

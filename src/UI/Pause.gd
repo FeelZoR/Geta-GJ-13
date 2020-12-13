@@ -1,6 +1,6 @@
 extends ColorRect
 
-var settings_scene = preload("res://src/UI/Settings.tscn")
+var settings_scene = preload("res://src/UI/SoundSettings.tscn")
 
 onready var resume_btn = $Buttons/Resume
 onready var settings_btn = $Buttons/Settings

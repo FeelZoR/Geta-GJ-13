@@ -1,6 +1,6 @@
 extends ColorRect
 
-var settings = preload("res://src/UI/Settings.tscn")
+var settings = preload("res://src/UI/SoundSettings.tscn")
 
 signal settings_closed
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/UI/Tutorial.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/UI/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/SoundSettings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/graphics/HUD/back_progress_bar.png" type="Texture" id=4]
 [ext_resource path="res://assets/graphics/HUD/progress_bar.png" type="Texture" id=5]
 [ext_resource path="res://assets/graphics/HUD/progress_bar_outline.png" type="Texture" id=6]
@@ -48,12 +48,6 @@ playing = true
 pause_mode = 2
 visible = false
 
-[node name="Settings" parent="HUD" instance=ExtResource( 3 )]
-visible = false
-
-[node name="PauseMenu" parent="HUD" instance=ExtResource( 7 )]
-visible = false
-
 [node name="Health_bar" type="HBoxContainer" parent="HUD"]
 margin_left = 5.0
 margin_top = 5.0
@@ -64,4 +58,10 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 7 )]
+visible = false
+
+[node name="Settings" parent="HUD" instance=ExtResource( 3 )]
+visible = false
 [connection signal="resume" from="HUD/PauseMenu" to="." method="_on_PauseMenu_resume"]
