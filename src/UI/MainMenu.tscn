@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/theme/fonts/SnowtopCaps.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/UI/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/BGM/off_limits.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -18,6 +19,11 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "BGM"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
