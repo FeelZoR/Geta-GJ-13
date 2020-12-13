@@ -111,3 +111,7 @@ func _start_boost(type, time, val):
 	
 func _on_BoostTimer_timeout():
 	emit_signal("resume_boost")
+	
+func damage():
+	.damage()
+	get_tree().get_current_scene().damage_player()

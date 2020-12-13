@@ -4,9 +4,14 @@ onready var effect_countdown = $HUD/Effect_Countdown
 onready var effect_icon = $HUD/Effect_Icon
 onready var tutorial = $HUD/Tutorial
 onready var pause = $HUD/PauseMenu
+onready var _health_bar = $HUD/Health_bar
 
 func _ready():
 	randomize()
+	_health_bar.setup_bar(5)
+	
+func damage_player():
+	_health_bar.remove_heart()
 	
 ##### BOOSTS #####
 

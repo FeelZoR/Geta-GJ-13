@@ -31,6 +31,7 @@ tracks/0/keys = {
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 813.23, 579.707 )
+health = 3
 
 [node name="Boosts" type="Node" parent="."]
 
