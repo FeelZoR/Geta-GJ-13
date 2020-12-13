@@ -22,3 +22,4 @@ script = ExtResource( 4 )
 stream = ExtResource( 3 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+[connection signal="finished" from="Hit" to="." method="_on_Hit_finished"]

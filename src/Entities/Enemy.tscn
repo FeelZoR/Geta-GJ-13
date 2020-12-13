@@ -30,6 +30,11 @@ animations = [ {
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), null, SubResource( 2 ), null ],
+"loop": true,
+"name": "Hurt",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -50,7 +55,7 @@ script = ExtResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 4 )
 animation = "Walking"
-frame = 1
+frame = 2
 
 [node name="Hitbox" parent="." index="2"]
 position = Vector2( 0, 7.63452 )
@@ -75,8 +80,11 @@ wait_time = 1.5
 
 [node name="AimingTime" type="Timer" parent="." index="6"]
 wait_time = 0.2
+
+[node name="InvincibilityTimer" type="Timer" parent="." index="7"]
 [connection signal="body_entered" from="TutorialNotifier" to="." method="_on_TutorialNotifier_body_entered"]
 [connection signal="body_entered" from="PlayerVisibility" to="." method="_on_PlayerVisibility_body_entered"]
 [connection signal="body_exited" from="PlayerVisibility" to="." method="_on_PlayerVisibility_body_exited"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
 [connection signal="timeout" from="AimingTime" to="." method="_on_AimingTime_timeout"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_InvincibilityTimer_timeout"]

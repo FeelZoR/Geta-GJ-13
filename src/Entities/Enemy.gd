@@ -7,9 +7,11 @@ var _initial_pos = 0
 var _initial_scale
 var _direction = 1
 var _is_aiming = false
+var _is_hurt = false
 
 onready var _reload_timer = $ReloadTimer
 onready var _aim_timer = $AimingTime
+onready var _invincibility_timer = $InvincibilityTimer
 
 var aggro = null
 
@@ -32,7 +34,7 @@ func _physics_process(_delta):
 				_reload_timer.start()
 				_aim_timer.start()
 	
-	if angle == null and not _is_aiming:
+	if angle == null and not _is_aiming and not _is_hurt:
 		if abs(position.x - _initial_pos.x) >= max_distance:
 			_update_direction()
 			
@@ -44,10 +46,6 @@ func _physics_process(_delta):
 func _update_direction():
 	_direction *= -1
 
-func _update_animation():
-	sprite.set_animation("Walking")
-	sprite.scale.x = -_initial_scale if _direction < 0 else _initial_scale
-
 func _on_TutorialNotifier_body_entered(body):
 	if body is Player and not TutorialsList.enemy_tutorial:
 		TutorialsList.enemy_tutorial = true
@@ -55,10 +53,25 @@ func _on_TutorialNotifier_body_entered(body):
 		var desc = tr(Settings.ENEMY_DESC_KEY)
 		get_tree().get_current_scene().start_tutorial(title, null, desc)
 
-##### PLAYER ATTACK #####
+##### ANIMATION #####
 func _look_at(player):
 	sprite.scale.x = -_initial_scale if player.position.x < position.x else _initial_scale
 	sprite.set_animation("Idle")
+	
+func _update_animation():
+	sprite.set_animation("Walking")
+	sprite.scale.x = -_initial_scale if _direction < 0 else _initial_scale
+	
+func _play_hurt():
+	sprite.set_animation("Hurt")
+	sprite.set_frame(0)
+	_is_hurt = true
+
+func _stop_hurt():
+	sprite.set_animation("Walking")
+	_is_hurt = false
+
+##### PLAYER ATTACK #####
 	
 func _calculate_launch_angle():
 	var pos = aggro.global_position - _gun.global_position
@@ -91,3 +104,18 @@ func _on_ReloadTimer_timeout():
 
 func _on_AimingTime_timeout():
 	_is_aiming = false
+
+func damage():
+	.damage()
+	_play_hurt()
+	_make_invincible()
+
+func _make_invincible():
+	set_collision_layer(0)
+	set_collision_mask(Settings.MOVEMENT_LAYER)
+	_invincibility_timer.start()
+
+func _on_InvincibilityTimer_timeout():
+	set_collision_layer(Settings.ENEMY_LAYER)
+	set_collision_mask(Settings.MOVEMENT_LAYER + Settings.FRIENDLY_PROJECTILE_LAYER)
+	_stop_hurt()
