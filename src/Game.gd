@@ -21,11 +21,13 @@ func _change_level(level):
 		_level.queue_free()
 	level.connect("level_start", self, "_start_level")
 	level.connect("level_change", self, "_change_level")
-	_levels.add_child(level)
+	_levels.call_deferred("add_child", level)
 	_curr_level = level
 	
 func _start_level(player):
 	_health_bar.setup_bar(player.health)
+	effect_countdown.visible = false
+	effect_icon.visible = false
 	
 func damage_player():
 	_health_bar.remove_heart()
