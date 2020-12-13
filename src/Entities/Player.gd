@@ -1,13 +1,10 @@
 class_name Player
-extends Entity
+extends Actor
 
 const FLOOR_DETECTION_DISTANCE = 20
-var _strength = 700
-var _is_reloading = false
 
 onready var _sprite = $Sprite
 onready var _platform_collider = $FloorCollider
-onready var _gun = $Sprite/Gun
 onready var _boost_timer = $BoostTimer
 onready var _jump_sound = $Jump
 
@@ -37,7 +34,7 @@ func _input(event):
 			direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX),
 								Input.get_joy_axis(0, JOY_ANALOG_LY))
 		_mirror(direction)
-		_gun.shoot(direction, _strength)
+		_gun.shoot(direction, _strength, true)
 		_is_reloading = true
 		$ReloadTimer.start()
 

@@ -1,37 +1,44 @@
 class_name Enemy
-extends Entity
+extends Actor
 
-export var move_time = 2
-export var health = 5
-var _time_left = 0
+export var max_distance = 200
+export var reload_time = 1.5
+var _initial_pos = 0
+var _initial_scale
 var _direction = 1
 
-onready var sprite = $Sprite
-onready var hitbox = $Hitbox
-onready var hit_sound = $Hit
+onready var _reload_timer = $ReloadTimer
+
+var aggro = null
 
 func _ready():
-	_time_left = move_time
+	_initial_pos = position
+	_initial_scale = sprite.scale.x
+	_reload_timer.wait_time = reload_time
 
-func _physics_process(delta):
-	_time_left -= delta
-	if _time_left < 0:
-		_update_direction()
-		_time_left = move_time
-		
-	_velocity.x = speed.x * _direction
-	_velocity = move_and_slide_with_snap(_velocity, Vector2.DOWN * 20, FLOOR_NORMAL)
+func _physics_process(_delta):
+	var angle = null
+	if aggro != null:
+		if not _is_reloading:
+			angle = _calculate_launch_angle()
+			if angle != null:
+				_look_at(aggro)
+				var dir = Vector2(cos(angle), -sin(angle))
+				_gun.shoot(dir, _strength, false)
+				_is_reloading = true
+				_reload_timer.start()
+	
+	if angle == null:
+		if abs(position.x - _initial_pos.x) >= max_distance:
+			_update_direction()
+			
+		_velocity.x = speed.x * _direction
+		_velocity = move_and_slide_with_snap(_velocity, Vector2.DOWN * 20, FLOOR_NORMAL)
+			
 
 func _update_direction():
 	_direction *= -1
-	sprite.set_flip_h(_direction < 0)
-
-func damage():
-	hit_sound.play()
-	health -= 1
-	if health <= 0:
-		sprite.visible = false
-		hitbox.set_deferred('disabled', true)
+	sprite.scale.x = -_initial_scale if _direction < 0 else _initial_scale
 
 func _on_TutorialNotifier_body_entered(body):
 	if body is Player and not TutorialsList.enemy_tutorial:
@@ -39,7 +46,36 @@ func _on_TutorialNotifier_body_entered(body):
 		var title = tr(Settings.ENEMY_TITLE_KEY)
 		var desc = tr(Settings.ENEMY_DESC_KEY)
 		get_tree().get_current_scene().start_tutorial(title, null, desc)
-		
-func _on_Hit_finished():
-	if health <= 0:
-		queue_free()
+
+##### PLAYER ATTACK #####
+func _look_at(player):
+	sprite.scale.x = -_initial_scale if player.position.x < position.x else _initial_scale
+	
+func _calculate_launch_angle():
+	var pos = aggro.global_position - _gun.global_position
+	var v = _strength
+	var g = gravity
+	
+	var root1 = atan2(pow(v, 2) + sqrt(pow(v, 4) - g * (g*pow(pos.x, 2) + 2 * -pos.y * pow(v, 2))), g * pos.x)
+	var root2 = atan2(pow(v, 2) - sqrt(pow(v, 4) - g * (g*pow(pos.x, 2) + 2 * -pos.y * pow(v, 2))), g * pos.x)
+	
+	if is_nan(root1):
+		if is_nan(root2):
+			return null
+		else:
+			return root2
+	elif is_nan(root2):
+		return root1
+	
+	return root2 if abs(root1) > abs(root2) else root1
+
+func _on_PlayerVisibility_body_entered(body):
+	if body is Player:
+		aggro = body
+
+func _on_PlayerVisibility_body_exited(body):
+	if body is Player:
+		aggro = null
+
+func _on_ReloadTimer_timeout():
+	_is_reloading = false

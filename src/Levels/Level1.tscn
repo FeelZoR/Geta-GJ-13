@@ -31,7 +31,6 @@ tracks/0/keys = {
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 813.23, 579.707 )
-move_time = 1
 
 [node name="Boosts" type="Node" parent="."]
 

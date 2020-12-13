@@ -7,7 +7,7 @@ func _on_Boost_body_entered(body):
 	if body is Player:
 		pickup(body)
 
-func pickup(player):
+func pickup(_player):
 	$Sound.play()
 	$Sprite.visible = false
 	$Hitbox.set_deferred('disabled', true)

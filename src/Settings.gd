@@ -29,3 +29,10 @@ const UI_CONFIRM				= "ui_confirm"
 const RESUME_KEY				= "resume"
 const SETTINGS_KEY				= "settings"
 const QUIT_KEY					= "quit"
+
+##### LAYERS #####
+const MOVEMENT_LAYER = 1
+const PLAYER_LAYER = 2
+const ENEMY_LAYER = 4
+const FRIENDLY_PROJECTILE_LAYER = 8
+const ENEMY_PROJECTILE_LAYER = 16
