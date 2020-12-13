@@ -7,8 +7,10 @@ onready var _sprite = $Sprite
 onready var _platform_collider = $FloorCollider
 onready var _boost_timer = $BoostTimer
 onready var _jump_sound = $Jump
+onready var _invincibility_timer = $InvincibilityTimer
 
 var _boost_locked = false
+var _invincible = false
 signal resume_boost
 signal start_boost
 
@@ -63,9 +65,9 @@ func _update_animation(direction):
 	
 func _change_idling(direction):
 	if direction.x == 0.0:
-		_sprite.set_animation("Idle")
+		_sprite.set_animation("Idle" if not _invincible else "Invincible idle")
 	else:
-		_sprite.set_animation("Walking")
+		_sprite.set_animation("Walking" if not _invincible else "Invincible walking")
 
 func _mirror(direction):
 	if direction.x != 0.0:
@@ -115,3 +117,15 @@ func _on_BoostTimer_timeout():
 func damage():
 	.damage()
 	get_tree().get_current_scene().damage_player()
+	_make_invincible()
+	
+func _make_invincible():
+	_invincibility_timer.start()
+	set_collision_layer(0)
+	set_collision_mask(Settings.MOVEMENT_LAYER)
+	_invincible = true
+
+func _on_InvincibilityTimer_timeout():
+	set_collision_layer(Settings.PLAYER_LAYER)
+	set_collision_mask(Settings.MOVEMENT_LAYER + Settings.ENEMY_PROJECTILE_LAYER)
+	_invincible = false
