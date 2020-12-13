@@ -55,3 +55,6 @@ speed_boost_title,Speed Boost,Bonus de Vitesse
 speed_boost_desc,This power-up allows you to move faster and jump farther.,Ce bonus te permet d'aller plus vite et de sauter plus loin.
 strength_boost_title,Strength Boost,Bonus de Force
 strength_boost_desc,"With this boost, your snowballs move farther, but don't deal higher damage. Be careful and don't be overconfident!","Avec ce boost, tes boules de neige se déplacent plus loin, mais ne font pas plus de dégâts. Fais attention et ne sois pas trop en confiance !"
+start,New Game,Nouvelle Partie
+main_menu,Return to Menu,Retour au Menu
+game_over,Game Over,Tu es mort

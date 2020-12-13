@@ -119,6 +119,9 @@ func damage():
 	get_tree().get_current_scene().damage_player()
 	_make_invincible()
 	
+	if health <= 0:
+		get_tree().change_scene("res://src/UI/GameOver.tscn")
+	
 func _make_invincible():
 	_invincibility_timer.start()
 	set_collision_layer(0)
