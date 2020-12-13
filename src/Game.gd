@@ -1,14 +1,28 @@
 extends Node2D
 
+var level1 = preload("res://src/Levels/LevelBase.tscn")
+
 onready var effect_countdown = $HUD/Effect_Countdown
 onready var effect_icon = $HUD/Effect_Icon
 onready var tutorial = $HUD/Tutorial
 onready var pause = $HUD/PauseMenu
 onready var _health_bar = $HUD/Health_bar
+onready var _levels = $Levels
 
 func _ready():
 	randomize()
-	_health_bar.setup_bar(5)
+	var level1_node = level1.instance()
+	_change_level(level1_node)
+	
+func _change_level(level):
+	for _level in _levels.get_children():
+		_level.queue_free()
+	level.connect("level_start", self, "_start_level")
+	level.connect("level_change", self, "_change_level")
+	_levels.add_child(level)
+	
+func _start_level(player):
+	_health_bar.setup_bar(player.health)
 	
 func damage_player():
 	_health_bar.remove_heart()
