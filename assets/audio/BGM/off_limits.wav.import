@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/off_limits.wav-520a3cf465c5ba0cad8035cb99c03404.sample"
+
+[deps]
+
+source_file="res://assets/audio/BGM/off_limits.wav"
+dest_files=[ "res://.import/off_limits.wav-520a3cf465c5ba0cad8035cb99c03404.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

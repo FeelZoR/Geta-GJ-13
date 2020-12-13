@@ -1,2 +1,14 @@
 Font by Dharma Type from https://www.dafont.com/fr/bebas-neue.font
 Font by Jehoo Creative from https://www.dafont.com/fr/tomodachy.font
+
+Snowball throwing sound (throw.wav) by mrickey13 from https://freesound.org/people/mrickey13/sounds/515625/
+Power-up sound (powerup.wav) by kianda from https://freesound.org/people/kianda/sounds/328120/
+Hit sound (hit.wav) by Leszek_Szary from https://freesound.org/people/Leszek_Szary/sounds/146730/
+Ui click sound (ui_click.wav) by finix473 from https://freesound.org/people/finix473/sounds/546974/
+Jump sound (jump.wav) by cabled_mess from https://freesound.org/people/cabled_mess/sounds/350901/
+
+Blazer Rail bgm from https://www.dl-sounds.com/royalty-free/blazer-rail/
+Blazer Rail 2 bgm from https://www.dl-sounds.com/royalty-free/blazer-rail-2/
+African Safari bgm from https://www.dl-sounds.com/royalty-free/african-safari-loop/
+Off Limits bgm from https://www.dl-sounds.com/royalty-free/off-limits/
+Patakas World bgm from https://www.dl-sounds.com/royalty-free/patakas-world/

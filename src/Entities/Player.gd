@@ -9,6 +9,7 @@ onready var _sprite = $Sprite
 onready var _platform_collider = $FloorCollider
 onready var _gun = $Sprite/Gun
 onready var _boost_timer = $BoostTimer
+onready var _jump_sound = $Jump
 
 var _boost_locked = false
 signal resume_boost
@@ -23,6 +24,9 @@ func _physics_process(_delta):
 	_velocity = move_and_slide_with_snap(_velocity, snap_vector, FLOOR_NORMAL, not is_on_platform)
 	
 	_update_animation(direction)
+	
+	if direction.y == -1:
+		_jump_sound.play()
 	
 func _input(event):
 	if event.is_action_pressed("shoot") and not _is_reloading:

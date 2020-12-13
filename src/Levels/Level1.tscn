@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Items/Boost_speed.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Platforms/Platform.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/Entities/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Entities/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/HUD/ParallaxBackground.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/BGM/patakas_world.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Position"
@@ -88,10 +89,16 @@ playback_process_mode = 0
 anims/Position = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 92.8744, 395.684 )
+position = Vector2( 78.6039, 430.171 )
 scale = Vector2( 1.5, 1.5 )
 speed = Vector2( 350, 500 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 limit_bottom = 720
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 7 )
+autoplay = true
+bus = "BGM"

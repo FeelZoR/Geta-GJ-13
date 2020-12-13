@@ -15,4 +15,5 @@ func _input(event):
 		finish()
 
 func _on_Button_pressed():
+	$Validate.play()
 	finish()

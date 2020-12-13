@@ -9,4 +9,8 @@ func _on_Boost_body_entered(body):
 
 func pickup(player):
 	$Sound.play()
+	$Sprite.visible = false
+	$Hitbox.set_deferred('disabled', true)
+
+func _on_Sound_finished():
 	queue_free()
