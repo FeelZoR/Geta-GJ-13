@@ -1,5 +1,6 @@
 Font by Dharma Type from https://www.dafont.com/fr/bebas-neue.font
 Font by Jehoo Creative from https://www.dafont.com/fr/tomodachy.font
+Font by Typographer Mediengesstaltung from https://www.1001fonts.com/snowtop-caps-font.html
 
 Snowball throwing sound (throw.wav) by mrickey13 from https://freesound.org/people/mrickey13/sounds/515625/
 Power-up sound (powerup.wav) by kianda from https://freesound.org/people/kianda/sounds/328120/
