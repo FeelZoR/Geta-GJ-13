@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/theme/fonts/BebasNeue-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/HUD/Tutorial.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+extra_spacing_char = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Card:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 2.37842, 1 ),
+"update": 0,
+"values": [ Vector2( 490, -300 ), Vector2( 490, 135 ) ]
+}
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.235294 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Card" type="VBoxContainer" parent="."]
+margin_left = 490.0
+margin_top = -500.0
+margin_right = 790.0
+margin_bottom = -253.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Card"]
+margin_right = 300.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 300, 0 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+autowrap = true
+
+[node name="Image" type="TextureRect" parent="Card"]
+margin_top = 43.0
+margin_right = 300.0
+margin_bottom = 43.0
+
+[node name="Description" type="Label" parent="Card"]
+margin_top = 46.0
+margin_right = 300.0
+margin_bottom = 246.0
+rect_min_size = Vector2( 300, 200 )
+custom_fonts/font = ExtResource( 2 )
+align = 3
+autowrap = true
+
+[node name="Button" type="Button" parent="Card"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_top = 251.0
+margin_right = 50.0
+margin_bottom = 274.0
+custom_fonts/font = ExtResource( 2 )
+text = "OK"
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/move = SubResource( 3 )
+[connection signal="pressed" from="Card/Button" to="." method="_on_Button_pressed"]
