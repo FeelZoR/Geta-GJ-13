@@ -20,3 +20,7 @@ func _on_Enemy_death():
 func _on_EndGame_body_entered(body):
 	if body is Player:
 		get_tree().change_scene("res://src/UI/Win.tscn")
+
+func _on_Area2D_body_entered(body):
+	if body is Player:
+		$Player.global_position = $Events/Teleporter/Position2D.global_position

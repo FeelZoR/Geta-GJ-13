@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/graphics/Level/parallax_front_mountains.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/Level/parralax_front_mountains.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphics/Level/parallax_back.png" type="Texture" id=2]
 [ext_resource path="res://assets/graphics/Level/parallax_clouds.png" type="Texture" id=3]
 [ext_resource path="res://assets/graphics/Level/parallax_back_mountains.png" type="Texture" id=4]
