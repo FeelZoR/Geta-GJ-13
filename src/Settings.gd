@@ -19,6 +19,12 @@ const POSITION_AIM = 'position'
 const ANGLE_AIM = 'angle'
 var aim = POSITION_AIM
 
+##### TILESET #####
+const ICE_ID = 0
+const SLOPE_ID = 1
+const GROUND_ID = 2
+const FILLER_ID = 3
+
 ##### SOUNDS #####
 const MASTER_BUS = "Master"
 const BGM_BUS = "BGM"
@@ -48,6 +54,10 @@ const SPEED_TITLE_KEY			= "speed_boost_title"
 const SPEED_DESC_KEY			= "speed_boost_desc"
 const STRENGTH_TITLE_KEY		= "strength_boost_title"
 const STRENGTH_DESC_KEY			= "strength_boost_desc"
+const OPENING_TITLE_KEY			= "opening_tutorial_title"
+const OPENING_DESC_KEY			= "opening_tutorial_desc"
+const LEVEL_TITLE_KEY			= "level_tutorial_title"
+const LEVEL_DESC_KEY			= "level_tutorial_desc"
 
 ##### LAYERS #####
 const MOVEMENT_LAYER = 1
