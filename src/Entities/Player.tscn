@@ -8,49 +8,49 @@
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 256, 0, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 4 ), SubResource( 3 ), SubResource( 2 ) ],
-"loop": true,
-"name": "Walking",
-"speed": 8.0
-}, {
-"frames": [ SubResource( 3 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), null, SubResource( 3 ), null ],
-"loop": true,
-"name": "Invincible idle",
-"speed": 4.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), null, null, SubResource( 5 ), SubResource( 4 ), null, null ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), null, null, SubResource( 4 ), SubResource( 5 ), null, null ],
 "loop": true,
 "name": "Invincible walking",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 1 ), SubResource( 5 ), SubResource( 4 ), SubResource( 5 ), SubResource( 1 ), SubResource( 3 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 1 ), null, SubResource( 1 ), null ],
+"loop": true,
+"name": "Invincible idle",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -64,7 +64,7 @@ script = ExtResource( 2 )
 [node name="Sprite" parent="." index="1"]
 frames = SubResource( 6 )
 animation = "Walking"
-frame = 1
+frame = 5
 
 [node name="Gun" parent="Sprite" index="0"]
 position = Vector2( 24.6719, 0 )

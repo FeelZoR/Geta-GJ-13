@@ -13,7 +13,7 @@ var jump_animation = preload("res://assets/graphics/Level/Items/Anim_bst_jump.tr
 const EASY_DIFF = 'easy'
 const MEDIUM_DIFF = 'medium'
 const HARD_DIFF = 'hard'
-var difficulty = EASY_DIFF
+var difficulty = MEDIUM_DIFF
 
 ##### SOUNDS #####
 const MASTER_BUS = "Master"

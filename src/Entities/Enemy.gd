@@ -3,6 +3,10 @@ extends Actor
 
 var tutorial_image = preload("res://assets/graphics/Tutorials/enemy.png")
 
+const EASY_AIM_RANGE = PI/4
+const MEDIUM_AIM_RANGE = PI/6
+var _aim_range = 0
+
 export var max_distance = 200
 export var reload_time = 1.5
 var _initial_pos = 0
@@ -21,6 +25,11 @@ func _ready():
 	_initial_pos = position
 	_initial_scale = sprite.scale.x
 	_reload_timer.wait_time = reload_time
+	
+	if Settings.difficulty == Settings.EASY_DIFF:
+		_aim_range = EASY_AIM_RANGE
+	elif Settings.difficulty == Settings.MEDIUM_DIFF:
+		_aim_range = MEDIUM_AIM_RANGE
 
 func _physics_process(_delta):
 	var angle = null
@@ -28,6 +37,8 @@ func _physics_process(_delta):
 		if not _is_reloading:
 			angle = _calculate_launch_angle()
 			if angle != null:
+				if _aim_range != 0:
+					angle = rand_range(angle - _aim_range, angle + _aim_range)
 				_look_at(aggro)
 				var dir = Vector2(cos(angle), -sin(angle))
 				_gun.shoot(dir, _strength, false)

@@ -3,6 +3,9 @@ extends Actor
 
 const FLOOR_DETECTION_DISTANCE = 20
 
+export var easy_health = 7
+export var hard_health = 3
+
 onready var _sprite = $Sprite
 onready var _platform_collider = $FloorCollider
 onready var _boost_timer = $BoostTimer
@@ -13,6 +16,13 @@ var _boost_locked = false
 var _invincible = false
 signal resume_boost
 signal start_boost
+
+func _ready():
+	if Settings.difficulty == Settings.EASY_DIFF:
+		health = easy_health
+	elif Settings.difficulty == Settings.HARD_DIFF:
+		health = hard_health
+	print(health)
 
 func _physics_process(_delta):
 	var direction = _get_direction()

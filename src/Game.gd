@@ -25,7 +25,7 @@ func _change_level(level):
 	_curr_level = level
 	
 func _start_level(player):
-	_health_bar.setup_bar(player.health)
+	_health_bar.setup_bar(player)
 	effect_countdown.visible = false
 	effect_icon.visible = false
 	
