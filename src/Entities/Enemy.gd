@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	var angle = null
 	if aggro != null:
 		if not _is_reloading:
-			angle = _calculate_launch_angle()
+			angle = Utils.calculate_launch_angle(_gun.global_position, aggro.global_position, _strength, gravity, Settings.difficulty != Settings.EASY_DIFF)
 			if angle != null:
 				if _aim_range != 0:
 					angle = rand_range(angle - _aim_range, angle + _aim_range)
@@ -88,24 +88,6 @@ func _stop_hurt():
 	_is_hurt = false
 
 ##### PLAYER ATTACK #####
-	
-func _calculate_launch_angle():
-	var pos = aggro.global_position - _gun.global_position
-	var v = _strength
-	var g = gravity
-	
-	var root1 = atan2(pow(v, 2) + sqrt(pow(v, 4) - g * (g*pow(pos.x, 2) + 2 * -pos.y * pow(v, 2))), g * pos.x)
-	var root2 = atan2(pow(v, 2) - sqrt(pow(v, 4) - g * (g*pow(pos.x, 2) + 2 * -pos.y * pow(v, 2))), g * pos.x)
-	
-	if is_nan(root1):
-		if is_nan(root2):
-			return null
-		else:
-			return root2
-	elif is_nan(root2):
-		return root1
-	
-	return root2 if abs(root1) > abs(root2) else root1
 
 func _on_PlayerVisibility_body_entered(body):
 	if body is Player:

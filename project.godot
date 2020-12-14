@@ -52,6 +52,7 @@ config/icon="res://icon.png"
 
 Settings="*res://src/Settings.gd"
 TutorialsList="*res://src/Tutorials_list.gd"
+Utils="*res://src/Utils.gd"
 
 [display]
 
