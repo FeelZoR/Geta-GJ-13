@@ -1,23 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/UI/DifficultyGroup.tres" type="ButtonGroup" id=1]
-[ext_resource path="res://assets/theme/fonts/Tomodachy.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=4]
-[ext_resource path="res://src/UI/GeneralSettings.gd" type="Script" id=5]
-[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/UI/Menus/Settings/GeneralSettings.gd" type="Script" id=1]
+[ext_resource path="res://src/UI/Menus/Settings/DifficultyGroup.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/theme/fonts/Tomodachy.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=6]
+[ext_resource path="res://src/UI/Menus/Settings/AimGroup.tres" type="ButtonGroup" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 outline_size = 1
 extra_spacing_char = 1
-font_data = ExtResource( 2 )
+font_data = ExtResource( 5 )
 
 [node name="General" type="Panel"]
 margin_top = 44.0
 margin_right = 1280.0
 margin_bottom = 720.0
 size_flags_vertical = 3
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -33,16 +34,16 @@ __meta__ = {
 
 [node name="Container" type="VBoxContainer" parent="Center"]
 margin_left = 393.0
-margin_top = 239.0
+margin_top = 204.0
 margin_right = 887.0
-margin_bottom = 436.0
+margin_bottom = 472.0
 custom_constants/separation = 25
 alignment = 1
 
 [node name="Label" type="Label" parent="Center/Container"]
 margin_right = 494.0
 margin_bottom = 78.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 6 )
 text = "general_settings_title"
 
 [node name="Localization" type="HBoxContainer" parent="Center/Container"]
@@ -56,14 +57,14 @@ margin_left = 130.0
 margin_top = 3.0
 margin_right = 215.0
 margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "language"
 
 [node name="Value" type="OptionButton" parent="Center/Container/Localization"]
 margin_left = 219.0
 margin_right = 364.0
 margin_bottom = 23.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "language_en"
 items = [ "language_en", null, false, 0, null, "language_fr", null, false, 1, null ]
 selected = 0
@@ -93,9 +94,9 @@ margin_left = 109.0
 margin_right = 177.0
 margin_bottom = 25.0
 hint_tooltip = "easy_tip"
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 pressed = true
-group = ExtResource( 1 )
+group = ExtResource( 2 )
 text = "easy"
 
 [node name="Medium" type="CheckBox" parent="Center/Container/Difficulty/Group"]
@@ -103,8 +104,8 @@ margin_left = 197.0
 margin_right = 294.0
 margin_bottom = 25.0
 hint_tooltip = "medium_tip"
-custom_fonts/font = ExtResource( 3 )
-group = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
+group = ExtResource( 2 )
 text = "medium"
 
 [node name="Hard" type="CheckBox" parent="Center/Container/Difficulty/Group"]
@@ -112,15 +113,56 @@ margin_left = 314.0
 margin_right = 385.0
 margin_bottom = 25.0
 hint_tooltip = "hard_tip"
-custom_fonts/font = ExtResource( 3 )
-group = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
+group = ExtResource( 2 )
 text = "hard"
 
+[node name="Aim" type="VBoxContainer" parent="Center/Container"]
+margin_top = 222.0
+margin_right = 494.0
+margin_bottom = 268.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Container/Aim"]
+margin_right = 494.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "aim_mode"
+align = 1
+
+[node name="Group" type="HBoxContainer" parent="Center/Container/Aim"]
+margin_top = 21.0
+margin_right = 494.0
+margin_bottom = 46.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Position" type="CheckBox" parent="Center/Container/Aim/Group"]
+margin_left = 102.0
+margin_right = 248.0
+margin_bottom = 25.0
+hint_tooltip = "aim_position_hint"
+custom_fonts/font = ExtResource( 4 )
+pressed = true
+group = ExtResource( 7 )
+text = "aim_position"
+
+[node name="Angle" type="CheckBox" parent="Center/Container/Aim/Group"]
+margin_left = 268.0
+margin_right = 391.0
+margin_bottom = 25.0
+hint_tooltip = "aim_angle_hint"
+custom_fonts/font = ExtResource( 4 )
+group = ExtResource( 7 )
+text = "aim_angle"
+
 [node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 3 )
 bus = "UI Sounds"
 [connection signal="item_selected" from="Center/Container/Localization/Value" to="." method="_on_Value_item_selected"]
 [connection signal="pressed" from="Center/Container/Localization/Value" to="." method="_on_pressed"]
 [connection signal="pressed" from="Center/Container/Difficulty/Group/Easy" to="." method="_on_pressed"]
 [connection signal="pressed" from="Center/Container/Difficulty/Group/Medium" to="." method="_on_pressed"]
 [connection signal="pressed" from="Center/Container/Difficulty/Group/Hard" to="." method="_on_pressed"]
+[connection signal="pressed" from="Center/Container/Aim/Group/Position" to="." method="_on_pressed"]
+[connection signal="pressed" from="Center/Container/Aim/Group/Angle" to="." method="_on_pressed"]

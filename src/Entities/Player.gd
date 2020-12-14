@@ -40,7 +40,7 @@ func _input(event):
 	if event.is_action_pressed("shoot") and not _is_reloading:
 		var direction = Vector2.ZERO
 		if event.button_index == BUTTON_LEFT:
-			direction = get_global_mouse_position() - _gun.global_position
+			direction = _get_shoot_angle()
 		else:
 			direction = Vector2(Input.get_joy_axis(0, JOY_ANALOG_LX),
 								Input.get_joy_axis(0, JOY_ANALOG_LY))
@@ -48,6 +48,18 @@ func _input(event):
 		_gun.shoot(direction, _strength, true)
 		_is_reloading = true
 		$ReloadTimer.start()
+
+func _get_shoot_angle():
+	if Settings.aim == Settings.POSITION_AIM:
+		var angle = null
+		var i = 1.0
+		while angle == null and i <= 1.5:
+			angle = Utils.calculate_launch_angle(_gun.global_position, get_global_mouse_position(), _strength * i, gravity) # We try an exact launch, then approximations
+			i += 0.1
+		if angle != null:
+			return Vector2(cos(angle), -sin(angle))
+	
+	return get_global_mouse_position() - _gun.global_position
 
 ######## MOVEMENT ########
 func _get_direction():

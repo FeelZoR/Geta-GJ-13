@@ -1,22 +1,22 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/theme/fonts/Main_Title.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://src/UI/MainMenu.gd" type="Script" id=3]
-[ext_resource path="res://assets/audio/BGM/off_limits.wav" type="AudioStream" id=4]
-[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=5]
+[ext_resource path="res://src/UI/Menus/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/BGM/off_limits.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/theme/fonts/Main_Title.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=5]
 
 [node name="MainMenu" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0.517647, 0.635294, 1 )
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 3 )
 autoplay = true
 bus = "BGM"
 
@@ -37,7 +37,7 @@ custom_constants/separation = 100
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 675.0
 margin_bottom = 129.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 4 )
 text = "Snow Escape"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
@@ -49,25 +49,25 @@ custom_constants/separation = 20
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_right = 675.0
 margin_bottom = 23.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 text = "start"
 
 [node name="Settings" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_top = 43.0
 margin_right = 675.0
 margin_bottom = 66.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 text = "settings"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/VBoxContainer"]
 margin_top = 86.0
 margin_right = 675.0
 margin_bottom = 109.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 text = "quit"
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 2 )
 bus = "UI Sounds"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

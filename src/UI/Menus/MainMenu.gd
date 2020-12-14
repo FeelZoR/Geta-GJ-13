@@ -1,7 +1,7 @@
 extends ColorRect
 
 onready var click_sound = $Click
-var settings = preload("res://src/UI/Settings.tscn")
+var settings = preload("res://src/UI/Menus/Settings/Settings.tscn")
 
 signal settings_closed
 signal click_sound

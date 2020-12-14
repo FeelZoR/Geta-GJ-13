@@ -15,6 +15,10 @@ const MEDIUM_DIFF = 'medium'
 const HARD_DIFF = 'hard'
 var difficulty = MEDIUM_DIFF
 
+const POSITION_AIM = 'position'
+const ANGLE_AIM = 'angle'
+var aim = POSITION_AIM
+
 ##### SOUNDS #####
 const MASTER_BUS = "Master"
 const BGM_BUS = "BGM"

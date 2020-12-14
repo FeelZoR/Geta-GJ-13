@@ -4,6 +4,8 @@ onready var language = $Center/Container/Localization/Value
 onready var easy = $Center/Container/Difficulty/Group/Easy
 onready var medium = $Center/Container/Difficulty/Group/Medium
 onready var hard = $Center/Container/Difficulty/Group/Hard
+onready var aim_position = $Center/Container/Aim/Group/Position
+onready var aim_angle = $Center/Container/Aim/Group/Angle
 onready var click_sound = $Click
 
 func _ready():
@@ -20,6 +22,11 @@ func _ready():
 		medium.pressed = true
 	elif Settings.difficulty == Settings.HARD_DIFF:
 		hard.pressed = true
+	
+	if Settings.aim == Settings.POSITION_AIM:
+		aim_position.pressed = true
+	else:
+		aim_angle.pressed = true
 
 func save():
 	var locale = language.get_item_text(language.get_selected_id()).replace('language_', '')
@@ -30,8 +37,13 @@ func save():
 		diff = Settings.MEDIUM_DIFF
 	elif hard.is_pressed():
 		diff = Settings.HARD_DIFF
+		
+	var aim = Settings.POSITION_AIM
+	if aim_angle.is_pressed():
+		aim = Settings.ANGLE_AIM
 	
 	Settings.difficulty = diff
+	Settings.aim = aim
 
 func _on_pressed():
 	click_sound.play()

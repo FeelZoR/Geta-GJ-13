@@ -71,3 +71,9 @@ hard,Hard,Difficile
 easy_tip,"Enemies have terrible aim, you have lots of health",Les ennemis ont une visée terrible et tu as beaucoup de vie
 medium_tip,"Enemies have correct aim, and you have a decent amount of health",Les ennemis ont une visée correcte et tu as suffisamment de vie
 hard_tip,"Enemies have great aim, and you only have a few hearts",Les ennemis ont une bonne visée et tu as peu de vie
+loading,Loading...,Chargement...
+aim_mode,Aim Mode,Mode de Visée
+aim_position,Position (Recommended),Position (Recommandé)
+aim_angle,Angle,Angle
+aim_position_hint,"You click where the snowball has to fall. If the click is too far for your strength, an approximate position is used.","Tu cliques à l'endroit où doit aller la boule de neige. Si cette position est trop éloignée pour ta force, une position approximative est utilisée."
+aim_angle_hint,The launch angle is calculated between your character and your click. The snowball probably won't reach your cursor's location.,L'angle de tir est calculé entre ton personnage et la position du clic. Il est probable que la boule de neige n'atteigne jamais ton curseur.
