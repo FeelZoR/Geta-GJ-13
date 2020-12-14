@@ -18,11 +18,6 @@ func _input(event):
 		else:
 			get_tree().get_current_scene()._pause()
 
-func _ready():
-	resume_btn.text = tr(Settings.RESUME_KEY)
-	settings_btn.text = tr(Settings.SETTINGS_KEY)
-	quit_btn.text = tr(Settings.QUIT_KEY)
-
 func _on_Resume_pressed():
 	audio.play()
 	emit_signal("resume")

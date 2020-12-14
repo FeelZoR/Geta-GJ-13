@@ -32,18 +32,21 @@ __meta__ = {
 margin_right = 100.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 100, 40 )
+text = "resume"
 
 [node name="Settings" type="Button" parent="Buttons"]
 margin_top = 50.0
 margin_right = 100.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 100, 40 )
+text = "settings"
 
 [node name="Quit" type="Button" parent="Buttons"]
 margin_top = 100.0
 margin_right = 100.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 100, 40 )
+text = "quit"
 
 [node name="UI_Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
