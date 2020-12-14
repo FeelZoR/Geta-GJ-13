@@ -7,6 +7,7 @@ func pickup(player):
 	player.boost(Settings.STRENGTH_BOOST, time, 150)
 	get_tree().get_current_scene().set_effect(time, Settings.strength_animation)
 	.pickup(player)
+	_start_tutorial()
 
 func _start_tutorial():
 	if not TutorialsList.strength_boost_tutorial:
