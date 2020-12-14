@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/graphics/Entities/enemy.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/Entities/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/theme/fonts/SnowtopCaps.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://src/UI/Win.gd" type="Script" id=6]
+[ext_resource path="res://assets/audio/BGM/ambient_piano.wav" type="AudioStream" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+extra_spacing_char = 4
+extra_spacing_space = 10
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "scroll"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 720 ), Vector2( 0, -2000 ) ]
+}
+
+[node name="WinScreen" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 150, 375 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 2
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1130, 375 )
+scale = Vector2( -1.5, 1.5 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
+
+[node name="Text" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 720.0
+margin_bottom = 725.0
+custom_constants/separation = 50
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Congrats" type="Label" parent="Text"]
+margin_right = 1280.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 2 )
+text = "congrats_title"
+align = 1
+valign = 1
+
+[node name="Desc" type="Label" parent="Text"]
+margin_top = 154.0
+margin_right = 1280.0
+margin_bottom = 171.0
+custom_fonts/font = ExtResource( 5 )
+custom_constants/line_spacing = 8
+text = "win_desc"
+align = 1
+
+[node name="Credits" type="VBoxContainer" parent="Text"]
+margin_top = 221.0
+margin_right = 1280.0
+margin_bottom = 320.0
+
+[node name="Credits_title" type="Label" parent="Text/Credits"]
+margin_right = 1280.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 4 )
+text = "credits_title"
+align = 1
+
+[node name="Label" type="Label" parent="Text/Credits"]
+margin_top = 82.0
+margin_right = 1280.0
+margin_bottom = 99.0
+custom_fonts/font = ExtResource( 5 )
+custom_constants/line_spacing = 8
+text = "credits_desc"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Text"]
+autoplay = "scroll"
+anims/scroll = SubResource( 1 )
+
+[node name="Visibility" type="VisibilityNotifier2D" parent="Text"]
+rect = Rect2( 0, 0, 20, 20 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "BGM"
+[connection signal="screen_exited" from="Text/Visibility" to="." method="_on_Visibility_screen_exited"]

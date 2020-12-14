@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ambient_piano.wav-a7f3e73e5f4561e0bf65c2d29c269764.sample"
+
+[deps]
+
+source_file="res://assets/audio/BGM/ambient_piano.wav"
+dest_files=[ "res://.import/ambient_piano.wav-a7f3e73e5f4561e0bf65c2d29c269764.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

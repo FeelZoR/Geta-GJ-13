@@ -77,3 +77,59 @@ aim_position,Position (Recommended),Position (Recommandé)
 aim_angle,Angle,Angle
 aim_position_hint,"You click where the snowball has to fall. If the click is too far for your strength, an approximate position is used.","Tu cliques à l'endroit où doit aller la boule de neige. Si cette position est trop éloignée pour ta force, une position approximative est utilisée."
 aim_angle_hint,The launch angle is calculated between your character and your click. The snowball probably won't reach your cursor's location.,L'angle de tir est calculé entre ton personnage et la position du clic. Il est probable que la boule de neige n'atteigne jamais ton curseur.
+congrats_title,Congratulations!,Félicitations !
+win_desc,"You managed to escape from Santa!
+
+You may now warn other snowmen about his evil plan...
+and maybe start a riot.
+
+You proved that you are stronger than Santa.
+And now is time for revenge.","Tu as réussi à échapper au Père Noël !
+
+Ton prochain objectif est d'avertir les autres bonshommes de neige
+de son plan machiavélique... et peut-être commencer une révolution !
+
+Tu as prouvé que tu étais plus fort que lui.
+Et il est désormais temps de prendre ta revanche."
+credits_title,Credits,Crédits
+credits_desc,"Thanks for playing!
+This game was made for Geta Game Jam #13.
+
+Made by Feelzor - Developer
+And Holowa - Graphics Designer
+
+Special thanks to:
+- Dharma Type for Bebas Neue font
+- Jehoo Creative for Tomodachy font
+- Typographer Mediengesstaltung for Snowtop Caps Font
+
+- mrickey13 for the throwing sound
+- kianda for the power-up sound
+- Leszek_Swary for the hitting sound
+- finix473 for the UI click sound
+- cabled_mess for the jumping sound
+- DL_sounds for the different background musics
+
+- Dan Sevenstar -DontMind8- for the heart assets
+
+You can find all links in Credits.txt","Merci d'avoir joué !
+Ce jeu a été créé pour la Geta Game Jam #13.
+
+Fait par Feelzor - Développeur
+Et Holowa - Design Graphique
+
+Et tous nos remerciements à :
+- Dharma Type pour la police Bebas Neue
+- Jehoo Creative pour la police Tomodachy
+- Typographer Mediengesstaltung pour la police Snowtop Caps
+
+- mrickey13 pour le son de jet de neige
+- kianda pour le son de bonus
+- Leszek_Swary pour le son de blessure
+- finix473 pour le son de clic UI
+- cabled_mess pour le son de saut
+- DL_sounds pour tous les sons d'ambiance
+
+- Dan Sevenstar -DontMind8- pour la barre de vie
+
+Tous les liens sont présents dans Credits.txt"

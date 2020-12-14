@@ -48,7 +48,7 @@ func save():
 func _on_pressed():
 	click_sound.play()
 
-func _on_Value_item_selected(index):
+func _on_Value_item_selected(_index):
 	click_sound.play()
 
 func set_in_game():

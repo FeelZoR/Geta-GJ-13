@@ -80,9 +80,9 @@ script = ExtResource( 2 )
 position = Vector2( 306.815, 619.577 )
 shape = SubResource( 4 )
 
-[node name="Area2D" type="Area2D" parent="Events" index="1"]
+[node name="EndLevel" type="Area2D" parent="Events" index="1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Events/Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Events/EndLevel" index="0"]
 position = Vector2( 3660.61, -111.271 )
 shape = SubResource( 5 )
 
@@ -91,4 +91,4 @@ position = Vector2( 305.527, 635.736 )
 [connection signal="body_entered" from="Boosts/Boost_jmp/BoostTutorial" to="Boosts/Boost_jmp/BoostTutorial" method="_on_BoostTutorial_body_entered"]
 [connection signal="body_entered" from="Map/Platform/PlatformTutorial" to="Map/Platform/PlatformTutorial" method="_on_PlatformTutorial_body_entered"]
 [connection signal="body_entered" from="Events/BeginTutorial" to="Events/BeginTutorial" method="_on_BeginTutorial_body_entered"]
-[connection signal="body_entered" from="Events/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Events/EndLevel" to="." method="_on_Area2D_body_entered"]

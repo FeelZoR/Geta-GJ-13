@@ -9,6 +9,7 @@ onready var pause = $HUD/PauseMenu
 onready var _health_bar = $HUD/Health_bar
 onready var _levels = $Levels
 onready var _loading = $HUD/Loading
+onready var _hud = $HUD
 
 var _curr_level = null
 
