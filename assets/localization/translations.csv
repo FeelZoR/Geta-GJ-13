@@ -58,3 +58,16 @@ strength_boost_desc,"With this boost, your snowballs move farther, but don't dea
 start,New Game,Nouvelle Partie
 main_menu,Return to Menu,Retour au Menu
 game_over,Game Over,Tu es mort
+general_tab_title,General,Général
+sounds_tab_title,Sounds,Sons
+language,Language,Langue
+language_fr,French,Français
+language_en,English,Anglais
+general_settings_title,General Settings,Options Générales
+difficulty,Difficulty,Difficulté
+easy,Easy,Facile
+medium,Medium,Moyen
+hard,Hard,Difficile
+easy_tip,"Enemies have terrible aim, you have lots of health",Les ennemis ont une visée terrible et tu as beaucoup de vie
+medium_tip,"Enemies have correct aim, and you have a decent amount of health",Les ennemis ont une visée correcte et tu as suffisamment de vie
+hard_tip,"Enemies have great aim, and you only have a few hearts",Les ennemis ont une bonne visée et tu as peu de vie

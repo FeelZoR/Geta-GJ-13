@@ -113,25 +113,6 @@ margin_top = 21.0
 margin_right = 1180.0
 margin_bottom = 37.0
 
-[node name="Buttons" type="HBoxContainer" parent="Margin/Container"]
-margin_top = 527.0
-margin_right = 1180.0
-margin_bottom = 567.0
-custom_constants/separation = 20
-alignment = 1
-
-[node name="Cancel" type="Button" parent="Margin/Container/Buttons"]
-margin_left = 500.0
-margin_right = 580.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 80, 40 )
-
-[node name="Ok" type="Button" parent="Margin/Container/Buttons"]
-margin_left = 600.0
-margin_right = 680.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 80, 40 )
-
 [node name="UI_Sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "UI Sounds"
@@ -139,6 +120,3 @@ bus = "UI Sounds"
 [connection signal="value_changed" from="Margin/Container/BGM/Bar" to="." method="_on_BgmBar_value_changed"]
 [connection signal="value_changed" from="Margin/Container/SFX/Bar" to="." method="_on_SfxBar_value_changed"]
 [connection signal="value_changed" from="Margin/Container/UI/Bar" to="." method="_on_UiBar_value_changed"]
-[connection signal="pressed" from="Margin/Container/Buttons/Cancel" to="." method="_on_Cancel_pressed"]
-[connection signal="pressed" from="Margin/Container/Buttons/Ok" to="." method="_on_Ok_pressed"]
-[connection signal="finished" from="UI_Sound" to="." method="_on_UI_Sound_finished"]

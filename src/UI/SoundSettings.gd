@@ -17,17 +17,8 @@ onready var sfx_bar = $Margin/Container/SFX/Bar
 onready var ui_title = $Margin/Container/UI/Title
 onready var ui_bar = $Margin/Container/UI/Bar
 
-onready var ok_button = $Margin/Container/Buttons/Ok
-onready var cancel_button = $Margin/Container/Buttons/Cancel
-
-var closing = false
-
-signal close
-
 func _ready():
 	global_title.text = tr(Settings.SOUND_SETTINGS_KEY)
-	ok_button.text = tr(Settings.UI_CONFIRM)
-	cancel_button.text = tr(Settings.UI_CANCEL)
 	
 	_initialize(master_bar, Settings.MASTER_BUS)
 	_initialize(bgm_bar, Settings.BGM_BUS)
@@ -78,18 +69,8 @@ func _update_intensity(bar_value, bus_name):
 		AudioServer.set_bus_mute(bus_id, false)
 		AudioServer.set_bus_volume_db(bus_id, _get_db_intensity(bar_value))
 	
-func _on_Ok_pressed():
+func save():
 	_update_intensity(master_bar.value, Settings.MASTER_BUS)
 	_update_intensity(bgm_bar.value, Settings.BGM_BUS)
 	_update_intensity(sfx_bar.value, Settings.SFX_BUS)
 	_update_intensity(ui_bar.value, Settings.UI_BUS)
-	sound.play()
-	closing = true
-
-func _on_Cancel_pressed():
-	sound.play()
-	closing = true
-
-func _on_UI_Sound_finished():
-	if closing:
-		emit_signal("close")

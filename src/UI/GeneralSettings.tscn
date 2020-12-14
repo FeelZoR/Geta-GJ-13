@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/UI/DifficultyGroup.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://assets/theme/fonts/Tomodachy.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/theme/fonts/Text_desc_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/UI/GeneralSettings.gd" type="Script" id=5]
+[ext_resource path="res://assets/audio/SFX/ui_click.wav" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[node name="General" type="Panel"]
+margin_top = 44.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.94388
+margin_bottom = -1.94385
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="Center"]
+margin_left = 393.0
+margin_top = 239.0
+margin_right = 887.0
+margin_bottom = 436.0
+custom_constants/separation = 25
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Container"]
+margin_right = 494.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 4 )
+text = "general_settings_title"
+
+[node name="Localization" type="HBoxContainer" parent="Center/Container"]
+margin_top = 103.0
+margin_right = 494.0
+margin_bottom = 126.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Container/Localization"]
+margin_left = 130.0
+margin_top = 3.0
+margin_right = 215.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 3 )
+text = "language"
+
+[node name="Value" type="OptionButton" parent="Center/Container/Localization"]
+margin_left = 219.0
+margin_right = 364.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 3 )
+text = "language_en"
+items = [ "language_en", null, false, 0, null, "language_fr", null, false, 1, null ]
+selected = 0
+
+[node name="Difficulty" type="VBoxContainer" parent="Center/Container"]
+margin_top = 151.0
+margin_right = 494.0
+margin_bottom = 197.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/Container/Difficulty"]
+margin_right = 494.0
+margin_bottom = 17.0
+custom_fonts/font = SubResource( 1 )
+text = "difficulty"
+align = 1
+
+[node name="Group" type="HBoxContainer" parent="Center/Container/Difficulty"]
+margin_top = 21.0
+margin_right = 494.0
+margin_bottom = 46.0
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Easy" type="CheckBox" parent="Center/Container/Difficulty/Group"]
+margin_left = 109.0
+margin_right = 177.0
+margin_bottom = 25.0
+hint_tooltip = "easy_tip"
+custom_fonts/font = ExtResource( 3 )
+pressed = true
+group = ExtResource( 1 )
+text = "easy"
+
+[node name="Medium" type="CheckBox" parent="Center/Container/Difficulty/Group"]
+margin_left = 197.0
+margin_right = 294.0
+margin_bottom = 25.0
+hint_tooltip = "medium_tip"
+custom_fonts/font = ExtResource( 3 )
+group = ExtResource( 1 )
+text = "medium"
+
+[node name="Hard" type="CheckBox" parent="Center/Container/Difficulty/Group"]
+margin_left = 314.0
+margin_right = 385.0
+margin_bottom = 25.0
+hint_tooltip = "hard_tip"
+custom_fonts/font = ExtResource( 3 )
+group = ExtResource( 1 )
+text = "hard"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "UI Sounds"
+[connection signal="item_selected" from="Center/Container/Localization/Value" to="." method="_on_Value_item_selected"]
+[connection signal="pressed" from="Center/Container/Localization/Value" to="." method="_on_pressed"]
+[connection signal="pressed" from="Center/Container/Difficulty/Group/Easy" to="." method="_on_pressed"]
+[connection signal="pressed" from="Center/Container/Difficulty/Group/Medium" to="." method="_on_pressed"]
+[connection signal="pressed" from="Center/Container/Difficulty/Group/Hard" to="." method="_on_pressed"]

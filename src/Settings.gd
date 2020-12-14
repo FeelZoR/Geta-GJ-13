@@ -10,6 +10,11 @@ var speed_animation = preload("res://assets/graphics/Level/Items/Anim_bst_speed.
 var strength_animation = preload("res://assets/graphics/Level/Items/Anim_bst_strength.tres")
 var jump_animation = preload("res://assets/graphics/Level/Items/Anim_bst_jump.tres")
 
+const EASY_DIFF = 'easy'
+const MEDIUM_DIFF = 'medium'
+const HARD_DIFF = 'hard'
+var difficulty = EASY_DIFF
+
 ##### SOUNDS #####
 const MASTER_BUS = "Master"
 const BGM_BUS = "BGM"
@@ -24,8 +29,6 @@ const MASTER_SETTINGS_KEY 		= "master_sound_settings"
 const BGM_SETTINGS_KEY			= "bgm_settings"
 const SFX_SETTINGS_KEY 			= "sfx_settings"
 const UI_SOUNDS_SETTINGS_KEY	= "ui_sounds_settings"
-const UI_CANCEL					= "ui_cancel"
-const UI_CONFIRM				= "ui_confirm"
 const RESUME_KEY				= "resume"
 const SETTINGS_KEY				= "settings"
 const QUIT_KEY					= "quit"

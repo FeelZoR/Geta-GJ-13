@@ -1,6 +1,6 @@
 extends ColorRect
 
-var settings_scene = preload("res://src/UI/SoundSettings.tscn")
+var settings_scene = preload("res://src/UI/Settings.tscn")
 
 onready var resume_btn = $Buttons/Resume
 onready var settings_btn = $Buttons/Settings
@@ -31,6 +31,7 @@ func _on_Settings_pressed():
 	audio.play()
 	var settings_node = settings_scene.instance()
 	add_child(settings_node)
+	settings_node.set_in_game()
 	settings_node.connect("close", self, "_on_Settings_closed")
 	yield(self, "_settings_closed")
 	settings_node.queue_free()
