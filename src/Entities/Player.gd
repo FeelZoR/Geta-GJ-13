@@ -22,7 +22,6 @@ func _ready():
 		health = easy_health
 	elif Settings.difficulty == Settings.HARD_DIFF:
 		health = hard_health
-	print(health)
 
 func _physics_process(_delta):
 	var direction = _get_direction()

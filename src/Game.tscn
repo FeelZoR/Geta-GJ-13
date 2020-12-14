@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
+[ext_resource path="res://assets/theme/fonts/Big_title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UI/Tutorial.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UI/SoundSettings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/graphics/HUD/back_progress_bar.png" type="Texture" id=4]
@@ -64,4 +65,21 @@ visible = false
 
 [node name="Settings" parent="HUD" instance=ExtResource( 3 )]
 visible = false
+
+[node name="Loading" type="ColorRect" parent="HUD"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HUD/Loading"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "loading"
+align = 1
+valign = 1
 [connection signal="resume" from="HUD/PauseMenu" to="." method="_on_PauseMenu_resume"]
